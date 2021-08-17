@@ -2,7 +2,7 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import Logger from './utils/logger'
 import loggerMiddleware from './middlewares/logger.middleware';
-
+import connect from './db/connect';
 
 const app = express();
 dotenv.config();
@@ -29,4 +29,5 @@ app.get('/logger', (_, res) => {
 
 app.listen(process.env.PORT, () => {
     console.log(`server is started running on port ${process.env.PORT} 🚀🚀`);
+    connect()
 });
