@@ -1,4 +1,5 @@
 import { Router } from "express";
+import postRouter from "./post.route";
 import userRouter from "./user.route";
 
 const router = Router();
@@ -18,6 +19,10 @@ router.get('/helth-check', async(req, res) => {
       }
 })
 
+// Import all user routes
 router.use('/users', userRouter);
+// Import all blog routes
+router.use('/posts', postRouter);
+
 
 export default router;
